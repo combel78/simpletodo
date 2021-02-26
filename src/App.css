@@ -1,0 +1,21 @@
+#topSpace {
+  margin-top: 2em;
+}
+
+ul.headerNav li li:first-child {
+  border-left: 0;
+  margin-left: 0;
+  padding: 0;
+}
+
+ul.headerNav li {
+  display: inline-block;
+  line-height: 1em;
+  margin-left: 1em;
+  padding-left: 0.5em;
+}
+
+ul.headerNav li a:link,
+a:visited {
+  border-bottom-color: transparent;
+}
