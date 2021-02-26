@@ -1,21 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const StartPage = () => {
   return (
     <section id="main_area" className="main style2">
       <div className="container">
         <span className="icon solid major fa-check-square"></span>
-        <h1>
-          Hi, das ist <strong>Simple TODO</strong>, ein kleines Tool, <br />
-          welches Dich unterstützt, <br />
-          Deine täglichen Aufgaben zu meistern.
-        </h1>
-        <p>
-          Bitte klicke auf <strong>Liste</strong>, um Deine Aufgabenliste zu
-          sehen. Klicke auf <strong>Neu</strong>, um eine neue Aufgabe zu
-          erstellen!
-        </p>
+        <motion.h1 animate={{ color: "#FF2994", x: 100, y: -100 }}>
+          Hi, das ist Simple TODO!
+        </motion.h1>
         <ul className="actions special">
           <li>
             <Link to="/list" className="button">
