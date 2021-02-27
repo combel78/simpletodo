@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { buttonVariant, componentContainerVariant } from "../motion";
 
 const Todo = ({ todo, index, completeTodo, removeTodo }) => {
   return (
@@ -39,7 +41,12 @@ const Todo = ({ todo, index, completeTodo, removeTodo }) => {
 const TODOList = ({ todos, completeTodo, removeTodo }) => {
   return (
     <section id="main_area" className="main style2">
-      <div className="container">
+      <motion.div
+        variants={componentContainerVariant}
+        initial="init"
+        animate="animation"
+        className="container"
+      >
         <div className="row">
           <span className="icon style4 major fa-check-square"></span>
           <h2>Deine Liste</h2>
@@ -66,14 +73,14 @@ const TODOList = ({ todos, completeTodo, removeTodo }) => {
             </tbody>
           </table>
           <ul className="actions special">
-            <li>
+            <motion.li variants={buttonVariant} whileHover="buttonAnimation">
               <Link to="/new" className="button">
                 Neu
               </Link>
-            </li>
+            </motion.li>
           </ul>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import { motion } from "framer-motion";
+import { buttonVariant, componentContainerVariant } from "../motion";
 
 const TODOForm = ({ addTodo }) => {
   const history = useHistory();
@@ -23,7 +25,12 @@ const TODOForm = ({ addTodo }) => {
 
   return (
     <section id="main_area" className="main style2">
-      <div className="container">
+      <motion.div
+        variants={componentContainerVariant}
+        initial="init"
+        animate="animation"
+        className="container"
+      >
         <div className="row">
           <h4>Neues TODO</h4>
         </div>
@@ -53,19 +60,19 @@ const TODOForm = ({ addTodo }) => {
             </div>
           </div>
           <ul className="actions" id="topSpace">
-            <li>
+            <motion.li variants={buttonVariant} whileHover="buttonAnimation">
               <input type="submit" className="button" value="Speichern" />
-            </li>
+            </motion.li>
           </ul>
         </form>
         <ul className="actions special">
-          <li>
+          <motion.li variants={buttonVariant} whileHover="buttonAnimation">
             <Link to="/list" className="button">
               Zurück
             </Link>
-          </li>
+          </motion.li>
         </ul>
-      </div>
+      </motion.div>
     </section>
   );
 };

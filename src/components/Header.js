@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { componentContainerVariant, navMenuChildVariant } from "../motion";
 
 const Header = () => {
   return (
@@ -8,17 +10,34 @@ const Header = () => {
         <hr />
       </div>
       <div className="row aln-center">
-        <ul className="headerNav">
-          <li>
+        <motion.ul
+          variants={componentContainerVariant}
+          initial="init"
+          animate="animation"
+          className="headerNav"
+        >
+          <motion.li
+            variants={navMenuChildVariant}
+            whileHover={navMenuChildVariant.hover}
+            whileTap={navMenuChildVariant.tap}
+          >
             <Link to="/">Start</Link>
-          </li>
-          <li>
+          </motion.li>
+          <motion.li
+            variants={navMenuChildVariant}
+            whileHover={navMenuChildVariant.hover}
+            whileTap={navMenuChildVariant.tap}
+          >
             <Link to="/list">Liste</Link>
-          </li>
-          <li>
+          </motion.li>
+          <motion.li
+            variants={navMenuChildVariant}
+            whileHover={navMenuChildVariant.hover}
+            whileTap={navMenuChildVariant.tap}
+          >
             <Link to="/new">Neu</Link>
-          </li>
-        </ul>
+          </motion.li>
+        </motion.ul>
       </div>
     </section>
   );

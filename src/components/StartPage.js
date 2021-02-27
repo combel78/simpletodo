@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { buttonVariant } from "../motion";
 
 const StartPage = () => {
   return (
@@ -40,24 +41,12 @@ const StartPage = () => {
           erstellen!
         </p>
         <ul className="actions special">
-          <motion.li
-            whileHover={{
-              scale: 1.2,
-              textShadow: "0px 0px 6px rgb(255, 255, 255)",
-            }}
-            transition={{ duration: 0.3 }}
-          >
+          <motion.li variants={buttonVariant} whileHover="buttonAnimation">
             <Link to="/list" className="button">
               Liste
             </Link>
           </motion.li>
-          <motion.li
-            whileHover={{
-              scale: 1.2,
-              textShadow: "0px 0px 6px rgb(255, 255, 255)",
-            }}
-            transition={{ duration: 0.3 }}
-          >
+          <motion.li variants={buttonVariant} whileHover="buttonAnimation">
             <Link to="/new" className="button">
               Neu
             </Link>
