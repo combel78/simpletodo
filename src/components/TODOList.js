@@ -1,20 +1,33 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { buttonVariant, componentContainerVariant } from "../motion";
+import {
+  buttonVariant,
+  componentContainerVariant,
+  todoListEntryVariant,
+  todoListIconVariant,
+} from "../motion";
 
 const Todo = ({ todo, index, completeTodo, removeTodo }) => {
   return (
     <tr>
-      <td style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
+      <motion.td
+        variants={todoListEntryVariant}
+        whileHover="hover"
+        style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
+      >
         {todo.name}
-      </td>
-      <td style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
+      </motion.td>
+      <motion.td
+        variants={todoListEntryVariant}
+        whileHover="hover"
+        style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
+      >
         {todo.description}
-      </td>
+      </motion.td>
       <td>
         <ul className="icons">
-          <li>
+          <motion.li variants={todoListIconVariant} whileHover="hover">
             <a
               href="#check"
               onClick={() => completeTodo(index)}
@@ -22,8 +35,8 @@ const Todo = ({ todo, index, completeTodo, removeTodo }) => {
             >
               <span className="label">Erledigt</span>
             </a>
-          </li>
-          <li>
+          </motion.li>
+          <motion.li variants={todoListIconVariant} whileHover="hover">
             <a
               href="#delete"
               onClick={() => removeTodo(index)}
@@ -31,7 +44,7 @@ const Todo = ({ todo, index, completeTodo, removeTodo }) => {
             >
               <span className="label">Löschen</span>
             </a>
-          </li>
+          </motion.li>
         </ul>
       </td>
     </tr>

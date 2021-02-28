@@ -2,7 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
-import { buttonVariant, componentContainerVariant } from "../motion";
+import {
+  buttonVariant,
+  componentContainerVariant,
+  todoInputFormVariant,
+} from "../motion";
 
 const TODOForm = ({ addTodo }) => {
   const history = useHistory();
@@ -37,7 +41,9 @@ const TODOForm = ({ addTodo }) => {
         <form onSubmit={handleSave}>
           <div className="row">
             <div className="col-8 col-12-xsmall">
-              <input
+              <motion.input
+                variants={todoInputFormVariant}
+                whileHover="hover"
                 type="text"
                 name="name"
                 id="name"
@@ -49,14 +55,16 @@ const TODOForm = ({ addTodo }) => {
           </div>
           <div className="row" id="topSpace">
             <div className="col-8 col-12-xsmall">
-              <textarea
+              <motion.textarea
+                variants={todoInputFormVariant}
+                whileHover="hover"
                 name="description"
                 id="description"
                 placeholder="Beschreibung"
                 rows="4"
                 value={inputs.description}
                 onChange={handleInputChange}
-              ></textarea>
+              ></motion.textarea>
             </div>
           </div>
           <ul className="actions" id="topSpace">

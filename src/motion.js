@@ -49,4 +49,44 @@ const navMenuChildVariant = {
   },
 };
 
-export { buttonVariant, componentContainerVariant, navMenuChildVariant };
+const todoListEntryVariant = {
+  hover: {
+    color: "#57aed3",
+    transition: {
+      type: "tween",
+      ease: "easeInOut",
+      duration: 0.3,
+    },
+  },
+};
+
+const todoListIconVariant = {
+  hover: {
+    scale: 1.3,
+    originX: 0,
+    transition: {
+      type: "spring",
+      stiffness: 300,
+    },
+  },
+};
+
+const todoInputFormVariant = {
+  hover: {
+    originX: 0,
+    scale: [1, 1.05, 1, 1.05, 1, 1.05],
+  },
+  transition: {
+    type: "spring",
+    stiffness: 300,
+  },
+};
+
+export {
+  buttonVariant,
+  componentContainerVariant,
+  navMenuChildVariant,
+  todoListEntryVariant,
+  todoListIconVariant,
+  todoInputFormVariant,
+};
