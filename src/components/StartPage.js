@@ -10,6 +10,7 @@ const StartPage = () => {
         className="container"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
+        exit="exit"
         transition={{ delay: 0.4, duration: 1 }}
       >
         <motion.span

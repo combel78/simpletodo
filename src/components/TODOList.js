@@ -58,6 +58,7 @@ const TODOList = ({ todos, completeTodo, removeTodo }) => {
         variants={componentContainerVariant}
         initial="init"
         animate="animation"
+        exit="exit"
         className="container"
       >
         <div className="row">

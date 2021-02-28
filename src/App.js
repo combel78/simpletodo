@@ -5,9 +5,11 @@ import Header from "./components/Header";
 import StartPage from "./components/StartPage.js";
 import TODOList from "./components/TODOList.js";
 import TODOForm from "./components/TODOForm.js";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
+  const location = useLocation();
   const [todos, setTodos] = React.useState([
     {
       name: "Lerne React",
@@ -46,21 +48,23 @@ function App() {
   return (
     <React.Fragment>
       <Header />
-      <Switch>
-        <Route path="/list">
-          <TODOList
-            todos={todos}
-            completeTodo={completeTodo}
-            removeTodo={removeTodo}
-          />
-        </Route>
-        <Route path="/new">
-          <TODOForm addTodo={addTodo} />
-        </Route>
-        <Route path="/">
-          <StartPage />
-        </Route>
-      </Switch>
+      <AnimatePresence exitBeforeEnter>
+        <Switch location={location} key={location.key}>
+          <Route path="/list">
+            <TODOList
+              todos={todos}
+              completeTodo={completeTodo}
+              removeTodo={removeTodo}
+            />
+          </Route>
+          <Route path="/new">
+            <TODOForm addTodo={addTodo} />
+          </Route>
+          <Route path="/">
+            <StartPage />
+          </Route>
+        </Switch>
+      </AnimatePresence>
       <Footer />
     </React.Fragment>
   );

@@ -33,6 +33,7 @@ const TODOForm = ({ addTodo }) => {
         variants={componentContainerVariant}
         initial="init"
         animate="animation"
+        exit="exit"
         className="container"
       >
         <div className="row">
